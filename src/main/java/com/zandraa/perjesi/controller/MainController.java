@@ -35,7 +35,7 @@ public class MainController {
       if (userName.equals("")) {
         return register();
       }
-    userRepository.save(new User(userName));
-    return "index";
+      userRepository.save(new User(userName));
+      return "register";
   }
 }
