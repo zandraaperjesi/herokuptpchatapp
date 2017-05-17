@@ -33,9 +33,19 @@ public class MainController {
     public String registerUser(Model model, @RequestParam("userName") String userName) {
       model.addAttribute(userName);
       if (userName.equals("")) {
-        return register();
+        return "registerEmpty";
+      }
+      userRepository.save(new User(userName));
+      return "index";
+  }
+
+  @PostMapping("/registerUserEmpty")
+    public String registerUserEmpty(Model model, @RequestParam("userName") String userName) {
+      model.addAttribute(userName);
+      if (userName.equals("")) {
+        return "registerEmpty";
       }
       userRepository.save(new User(userName));
       return "register";
-  }
+    }
 }
