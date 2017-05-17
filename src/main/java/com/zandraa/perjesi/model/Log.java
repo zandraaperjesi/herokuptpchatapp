@@ -26,7 +26,6 @@ public class Log {
   public String toString() {
     return this.dateAndTime + " " +
             this.logLevel + " " +
-            this.method + " " +
             this.path + " " +
             this.method + " " +
             this.requestData;
