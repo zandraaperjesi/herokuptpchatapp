@@ -32,11 +32,11 @@ public class MainController {
 
   @RequestMapping("/sendMessage")
     public String sendMessage(@RequestParam("message") String message) {
-    long id = 0;
-    do {
+    long id = -1;
+    while(!messageRepository.exists(id)) {
       id = (long) (1000000 + (Math.random() * 9000000));
-    } while(!messageRepository.exists(id));
-    messageRepository.save(new Message(user, message, id));
+      messageRepository.save(new Message(user, message, id));
+    }
     return "index";
   }
 
