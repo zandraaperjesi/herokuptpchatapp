@@ -20,11 +20,22 @@ public class MainController {
 
   @RequestMapping("/")
     public String returnIndex(HttpServletRequest request) {
-    System.out.println(new Log(request.getRequestURI(), request.getMethod(), System.getenv("CHAT_APP_LOGLEVEL"), request.getQueryString()));
+      System.out.println(new Log(request.getRequestURI(), request.getMethod(), System.getenv("CHAT_APP_LOGLEVEL"), request.getQueryString()));
       return "index";
     }
 
-  @RequestMapping("/register")
+  @RequestMapping("/updateUser")
+    public String updateUser(Model model, @RequestParam("userName") String userName) {
+    Iterable<User> users = userRepository.findAll();
+    for (User user : users) {
+      userRepository.delete(user);
+    }
+    userRepository.save(new User(userName));
+    model.addAttribute(userName);
+    return "index";
+  }
+
+  @RequestMapping("/enter")
     public String register() {
     return "register";
   }
