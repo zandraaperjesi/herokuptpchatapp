@@ -15,7 +15,7 @@ public class Log {
   public Log(String path, String method, String logLevel, String requestData) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
     LocalDateTime dateTime = LocalDateTime.now();
-    dateAndTime = dateTime.format(formatter);
+    this.dateAndTime = dateTime.format(formatter);
     this.path = path;
     this.method = method;
     this.logLevel = logLevel;
