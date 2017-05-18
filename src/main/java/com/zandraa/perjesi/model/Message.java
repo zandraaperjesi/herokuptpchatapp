@@ -2,10 +2,10 @@ package com.zandraa.perjesi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "unique_message_table_name")
 public class Message {
   @Id
   private Long id;
