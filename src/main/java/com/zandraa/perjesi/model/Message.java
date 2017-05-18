@@ -1,5 +1,6 @@
 package com.zandraa.perjesi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 public class Message {
   @Id
   private Long id;
+  @Column(name="unique_user_row_name")
   private String user;
   private String message;
   private Long timestamp;
