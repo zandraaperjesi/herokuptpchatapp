@@ -35,12 +35,13 @@ public class MainController {
     }
 
   @RequestMapping("/sendMessage")
-    public String sendMessage(@RequestParam("message") String message) {
+    public String sendMessage(@RequestParam("message") String message, Model model) {
     long id = -1;
     while(!messageRepository.exists(id)) {
       id = (long) (1000000 + (Math.random() * 9000000));
       messageRepository.save(new Message(user, message, id));
     }
+    model.addAttribute("user", userRepository.findAll());
     return "index";
   }
 
@@ -53,6 +54,7 @@ public class MainController {
     user = userName;
     userRepository.save(new User(userName));
     model.addAttribute(userName);
+    model.addAttribute("user", userRepository.findAll());
     return "index";
   }
 
@@ -69,6 +71,7 @@ public class MainController {
       }
       user = userName;
       userRepository.save(new User(userName));
+      model.addAttribute("user", userRepository.findAll());
       return "index";
   }
 
