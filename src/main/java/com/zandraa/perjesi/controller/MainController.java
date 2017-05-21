@@ -42,6 +42,7 @@ public class MainController {
       messageRepository.save(new Message(user, message, id));
     }
     model.addAttribute("user", userRepository.findAll());
+    model.addAttribute("messages", messageRepository.findAll());
     return "index";
   }
 

@@ -7,12 +7,16 @@
 <body>
 <form method="post" action="updateUser">
     <span>Username</span>
-    <input type="text" name="userName" th:placeholder="${user[0].name}"></input>
+    <input type="text" name="userName" th:placeholder="${user[0].name}"/>
     <input type="submit" name="updateButton" value="update"/>
 </form>
 <ul>
     <li>Username: App</li>
     <li>Text: Hi there! Submit your message using the send button!</li>
+</ul>
+<ul th:each="message:${messages}">
+    <li th:text="${message.getUser()}"></li>
+    <li th:text="${message.getMessage()}"></li>
 </ul>
 <form method="post" action="sendMessage">
     <input type="text" name="message"/>
