@@ -25,8 +25,12 @@ public class MainController {
   String user = "";
 
   @RequestMapping("/")
-    public String returnIndex(HttpServletRequest request) {
+    public String returnIndex(HttpServletRequest request, Model model) {
+      if (userRepository.count() == 0) {
+        return "register";
+      }
       System.out.println(new Log(request.getRequestURI(), request.getMethod(), System.getenv("CHAT_APP_LOGLEVEL"), request.getQueryString()));
+      model.addAttribute("user", userRepository.findAll());
       return "index";
     }
 
