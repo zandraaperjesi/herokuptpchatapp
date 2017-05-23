@@ -23,7 +23,7 @@ public class ReceiveController {
   @CrossOrigin("*")
   @RequestMapping(value = "/api/message/receive", method = RequestMethod.POST)
   public ReceiveResponse incomingMessage(@RequestBody IncomingMessage newMessage) {
-    if (newMessage.getClient().getId() != System.getenv("CHAT_APP_UNIQUE_ID")) {
+    if (!newMessage.getClient().getId().equals("zandraaperjesi")) {
       messageRepository.save(newMessage.getMessage());
       broadCastMessageService.sendMessage(newMessage.getMessage(), newMessage.getClient());
     }
