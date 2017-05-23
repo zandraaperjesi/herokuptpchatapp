@@ -15,7 +15,7 @@
     <li>Text: Hi there! Submit your message using the send button!</li>
 </ul>
 <ul th:each="message:${messages}">
-    <li th:text="${message.getUser()}"></li>
+    <li th:text="${message.getUsername()}"></li>
     <li th:text="${message.getMessage()}"></li>
 </ul>
 <form method="post" action="sendMessage">
