@@ -46,8 +46,11 @@ public class MainController {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, text, id));
+        Message sampleMessage = new Message(user, text, id);
+        System.out.println(sampleMessage.getId());
+        System.out.println(sampleMessage.getText());
+        System.out.println(sampleMessage.getUsername());
         //broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
-        System.out.println(text);
       }
     }
     model.addAttribute("user", userRepository.findAll());
