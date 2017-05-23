@@ -46,7 +46,7 @@ public class MainController {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, text, id));
-        broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
+        //broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
         System.out.println("aaasd");
       }
     }
