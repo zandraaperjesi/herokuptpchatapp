@@ -25,7 +25,7 @@ public class ReceiveController {
   public ReceiveResponse incomingMessage(@RequestBody IncomingMessage newMessage) {
     if (!newMessage.getClient().getId().equals("zandraaperjesi")) {
       messageRepository.save(newMessage.getMessage());
-      broadCastMessageService.sendMessage(newMessage.getMessage(), newMessage.getClient());
+      //broadCastMessageService.sendMessage(newMessage.getMessage(), newMessage.getClient());
     }
     return validatorService.validate(newMessage);
   }
