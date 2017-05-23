@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class BroadCastMessageService {
 
   public void sendMessage(Message message, Client client) {
-    final String uri = "https://afternoon-peak-66579.herokuapp.com/api/message/receive";
+    final String uri = "https://damp-mesa-19689.herokuapp.com/api/message/receive";
     RestTemplate restTemplate = new RestTemplate();
     IncomingMessage sendMessage = new IncomingMessage(message, client);
     restTemplate.postForObject(uri, sendMessage, ReceiveResponse.class);
