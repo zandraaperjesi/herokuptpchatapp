@@ -46,7 +46,7 @@ public class MainController {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, message, id));
-        broadCastMessageService.sendMessage(new Message(user, "asdasdasd", id + 1), new Client("ffd"));
+        broadCastMessageService.sendMessage(new Message(user, message, id), new Client(System.getenv("CHAT_APP_UNIQUE_ID")));
       }
     }
     model.addAttribute("user", userRepository.findAll());
