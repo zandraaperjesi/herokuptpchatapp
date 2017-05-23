@@ -40,7 +40,7 @@ public class MainController {
     }
 
   @RequestMapping("/sendMessage")
-    public String sendMessage(@RequestParam("message") String message, Model model) {
+    public String sendMessage(@RequestParam("text") String message, Model model) {
     long id = -1;
     while(!messageRepository.exists(id)) {
       id = (long) (1000000 + (Math.random() * 9000000));
