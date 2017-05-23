@@ -47,6 +47,7 @@ public class MainController {
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, text, id));
         broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
+        System.out.println("aaasd");
       }
     }
     model.addAttribute("user", userRepository.findAll());
