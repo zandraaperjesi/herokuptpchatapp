@@ -16,7 +16,9 @@ public class ReceiveController {
   @RequestMapping(value = "/api/message/receive", method = RequestMethod.POST)
   public ReceiveResponse incomingMessage(@RequestBody IncomingMessage newMessage) {
     messageRepository.save(newMessage.getMessage());
-    System.out.println("topkek");
+    System.out.println("**********************************************************************");
+    System.out.println(newMessage.getMessage().getMessage());
+    System.out.println("**********************************************************************");
     return new ReceiveResponse("ok");
   }
 }
