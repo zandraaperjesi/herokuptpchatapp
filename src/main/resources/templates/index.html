@@ -16,7 +16,7 @@
 </ul>
 <ul th:each="text:${messages}">
     <li th:text="${text.getUsername()}"></li>
-    <li th:text="${text.getMessage()}"></li>
+    <li th:text="${text.getText()}"></li>
 </ul>
 <form method="post" action="sendMessage">
     <input type="text" name="text"/>
