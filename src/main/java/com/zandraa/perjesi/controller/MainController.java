@@ -5,6 +5,7 @@ import com.zandraa.perjesi.model.Message;
 import com.zandraa.perjesi.model.User;
 import com.zandraa.perjesi.repository.MessageRepository;
 import com.zandraa.perjesi.repository.UserRepository;
+import com.zandraa.perjesi.service.BroadCastMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ public class MainController {
 
   @Autowired
   MessageRepository messageRepository;
+
+  @Autowired
+  BroadCastMessageService broadCastMessageService;
 
   String user = "";
 
@@ -41,11 +45,12 @@ public class MainController {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, message, id));
+        broadCastMessageService.sendMessage((new Message(user, message, id)));
       }
     }
     model.addAttribute("user", userRepository.findAll());
     model.addAttribute("messages", messageRepository.findAll());
-    return "index";
+    return "redirect:/";
   }
 
   @RequestMapping("/updateUser")
