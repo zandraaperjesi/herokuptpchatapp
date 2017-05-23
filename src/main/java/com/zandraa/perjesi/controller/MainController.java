@@ -39,7 +39,9 @@ public class MainController {
     long id = -1;
     while(!messageRepository.exists(id)) {
       id = (long) (1000000 + (Math.random() * 9000000));
-      messageRepository.save(new Message(user, message, id));
+      if (!messageRepository.exists(id)) {
+        messageRepository.save(new Message(user, message, id));
+      }
     }
     model.addAttribute("user", userRepository.findAll());
     model.addAttribute("messages", messageRepository.findAll());
