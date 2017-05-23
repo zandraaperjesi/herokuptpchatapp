@@ -3,6 +3,7 @@ package com.zandraa.perjesi.service;
 import com.zandraa.perjesi.model.Client;
 import com.zandraa.perjesi.model.IncomingMessage;
 import com.zandraa.perjesi.model.Message;
+import com.zandraa.perjesi.model.ReceiveResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,6 +14,6 @@ public class BroadCastMessageService {
     final String uri = "https://tirikk-p2pchat-1.herokuapp.com/api/message/receive";
     RestTemplate restTemplate = new RestTemplate();
     IncomingMessage sendMessage = new IncomingMessage(message, client);
-    restTemplate.postForObject(uri, sendMessage, IncomingMessage.class);
+    restTemplate.postForObject(uri, sendMessage, ReceiveResponse.class);
   }
 }
