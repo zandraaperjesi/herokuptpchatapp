@@ -51,7 +51,7 @@ public class MainController {
     }
     model.addAttribute("user", userRepository.findAll());
     model.addAttribute("messages", messageRepository.findAll());
-    return "redirect:/";
+    return "index";
   }
 
   @RequestMapping("/updateUser")
