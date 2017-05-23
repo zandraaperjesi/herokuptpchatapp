@@ -1,8 +1,10 @@
 package com.zandraa.perjesi.service;
 
 import com.zandraa.perjesi.model.Message;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+@Service
 public class BroadCastMessageService {
 
   public Message sendMessage(Message message) {
