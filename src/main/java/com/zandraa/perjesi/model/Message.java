@@ -17,9 +17,9 @@ public class Message {
 
   public Message() {}
 
-  public Message(String user, String message, Long id) {
+  public Message(String user, String text, Long id) {
     this.username = user;
-    this.text = message;
+    this.text = text;
     this.id = id;
     this.timestamp = System.currentTimeMillis() / 1000L;
   }
