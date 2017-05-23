@@ -12,6 +12,7 @@ public class Message {
   private Long id;
   @Column(name="unique_user_row_name")
   private String username;
+  @Column(name="unique_text_row_name")
   private String text;
   private Long timestamp;
 
