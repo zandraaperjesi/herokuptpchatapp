@@ -9,11 +9,10 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class BroadCastMessageService {
 
-  public IncomingMessage sendMessage(Message message, Client client) {
+  public void sendMessage(Message message, Client client) {
     final String uri = "https://damp-mesa-19689.herokuapp.com/api/message/receive";
     RestTemplate restTemplate = new RestTemplate();
     IncomingMessage sendMessage = new IncomingMessage(message, client);
-    IncomingMessage result = restTemplate.postForObject(uri, sendMessage, IncomingMessage.class);
-    return result;
+    restTemplate.postForObject(uri, sendMessage, IncomingMessage.class);
   }
 }
