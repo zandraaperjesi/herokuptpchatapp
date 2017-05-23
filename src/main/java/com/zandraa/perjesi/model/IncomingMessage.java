@@ -2,9 +2,14 @@ package com.zandraa.perjesi.model;
 
 public class IncomingMessage {
   private Message message;
-  private User user;
+  private Client client;
 
   public IncomingMessage() {}
+
+  public IncomingMessage(Message message, Client client) {
+    this.message = message;
+    this.client = client;
+  }
 
   public Message getMessage() {
     return message;
@@ -14,11 +19,11 @@ public class IncomingMessage {
     this.message = message;
   }
 
-  public User getUser() {
-    return user;
+  public Client getClient() {
+    return client;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setClient(Client client) {
+    this.client = client;
   }
 }

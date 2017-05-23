@@ -1,5 +1,6 @@
 package com.zandraa.perjesi.controller;
 
+import com.zandraa.perjesi.model.Client;
 import com.zandraa.perjesi.model.Log;
 import com.zandraa.perjesi.model.Message;
 import com.zandraa.perjesi.model.User;
@@ -45,7 +46,7 @@ public class MainController {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
         messageRepository.save(new Message(user, message, id));
-        broadCastMessageService.sendMessage((new Message(user, "asdasdasd", id)));
+        broadCastMessageService.sendMessage(new Message(user, "asdasdasd", id), new Client("ffd"));
       }
     }
     model.addAttribute("user", userRepository.findAll());
