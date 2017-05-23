@@ -50,7 +50,7 @@ public class MainController {
         System.out.println(sampleMessage.getId());
         System.out.println(sampleMessage.getText());
         System.out.println(sampleMessage.getUsername());
-        //broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
+        broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
       }
     }
     model.addAttribute("user", userRepository.findAll());
