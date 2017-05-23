@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ValidatorService {
 
   public ReceiveResponse validate(IncomingMessage toValidate) {
-    if (toValidate.getMessage().getMessage().equals(null)) {
+    if (toValidate.getMessage().getText().equals(null)) {
       return new ReceiveResponse("message missing");
     }
     if (toValidate.getMessage().getUsername().equals(null)) {

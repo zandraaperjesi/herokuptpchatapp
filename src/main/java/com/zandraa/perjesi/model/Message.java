@@ -12,14 +12,14 @@ public class Message {
   private Long id;
   @Column(name="unique_user_row_name")
   private String username;
-  private String message;
+  private String text;
   private Long timestamp;
 
   public Message() {}
 
   public Message(String user, String message, Long id) {
     this.username = user;
-    this.message = message;
+    this.text = message;
     this.id = id;
     this.timestamp = System.currentTimeMillis() / 1000L;
   }
@@ -40,12 +40,12 @@ public class Message {
     this.username = username;
   }
 
-  public String getMessage() {
-    return message;
+  public String getText() {
+    return text;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setText(String text) {
+    this.text = text;
   }
 
   public Long getTimestamp() {
