@@ -40,13 +40,13 @@ public class MainController {
     }
 
   @RequestMapping("/sendMessage")
-    public String sendMessage(@RequestParam("text") String message, Model model) {
+    public String sendMessage(@RequestParam("text") String text, Model model) {
     long id = -1;
     while(!messageRepository.exists(id)) {
       id = (long) (1000000 + (Math.random() * 9000000));
       if (!messageRepository.exists(id)) {
-        messageRepository.save(new Message(user, message, id));
-        broadCastMessageService.sendMessage(new Message(user, message, id + 1), new Client("zandraaperjesiaaaa"));
+        messageRepository.save(new Message(user, text, id));
+        broadCastMessageService.sendMessage(new Message(user, text, id + 1), new Client("zandraaperjesiaaaa"));
       }
     }
     model.addAttribute("user", userRepository.findAll());
